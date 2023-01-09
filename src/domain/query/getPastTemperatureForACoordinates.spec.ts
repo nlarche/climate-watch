@@ -1,5 +1,5 @@
-import { ClimateWatchDomain } from "./index";
-import { ClimateDataRepository } from "./repository/climateDataRepository";
+import { ClimateDataRepository } from "../repository/climateDataRepository";
+import { GetPastTemperatureForACoordinates } from "./getPastTemperatureForACoordinates";
 
 describe("Should get Should get temperatures for a coordinates", () => {
   it("should return men temperature for coordinates", async () => {
@@ -33,8 +33,8 @@ describe("Should get Should get temperatures for a coordinates", () => {
         return Promise.resolve(mockData);
       },
     };
-    const domain = new ClimateWatchDomain(climateDataRepository);
-    const result = await domain.getDataForCoordinate({
+    const query = new GetPastTemperatureForACoordinates(climateDataRepository);
+    const result = await query.get({
       latitude: 47.22,
       longitude: -1.55,
     });

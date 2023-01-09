@@ -1,6 +1,14 @@
 import { Period } from "../../domain/model/Period";
 import { mean, median } from "../../utils/math";
-import { type OpenMeteoData } from "../openMeteoRepository";
+
+interface Daily {
+  temperature_2m_max: (number | null)[];
+  temperature_2m_min: (number | null)[];
+}
+
+export interface OpenMeteoData {
+  daily: Daily;
+}
 
 export function mapToTemperatureData(period: Period) {
   return (openMeteoData: OpenMeteoData) => {
