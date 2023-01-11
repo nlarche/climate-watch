@@ -1,5 +1,5 @@
 {
-  "name": "climate-watch-react",
+  "name": "@climate-watch/react",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@climate-watch/app": "workspace:1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

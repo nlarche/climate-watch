@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
-import { domain } from "../../../../domain";
-import { City } from "../../../../domain/model/City";
+import { domain } from "@climate-watch/app/domain";
+import { City } from "@climate-watch/app/domain/model/City";
 
 export function SearchInput() {
   const [search, setSearch] = useState("");

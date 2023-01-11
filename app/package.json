@@ -1,13 +1,14 @@
 {
-  "name": "ts-playground",
+  "name": "@climate-watch/app",
   "version": "1.0.0",
-  "description": "playground for Typescript with Jest",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
     "format": "prettier --write"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {

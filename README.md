@@ -8,3 +8,11 @@ lastMonth
 last year Month
 last month ten year
 last month 50 year
+
+## dev
+
+'pnpm -r dev'
+
+## test
+
+'pnpm -r test'
