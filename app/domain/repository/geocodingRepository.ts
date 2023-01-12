@@ -4,5 +4,5 @@ import { Period } from "../model/Period";
 import { City } from "../model/City";
 
 export interface GeocodingRepository {
-  searchByNameOrPostalCode: (nameOrPostalCode: String) => Promise<City[]>;
+  searchByNameOrPostalCode: (nameOrPostalCode: string) => Promise<City[]>;
 }

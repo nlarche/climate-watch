@@ -21,7 +21,9 @@ export class ClimateWatchDomain {
     );
   }
 
-  getDataForCoordinate(coordinates: Coordinates): Promise<TemperatureData[]> {
+  getTemperatureDataForCoordinate(
+    coordinates: Coordinates
+  ): Promise<TemperatureData[]> {
     return this.getPastTemperatureForACoordinatesQuery.get(coordinates);
   }
 

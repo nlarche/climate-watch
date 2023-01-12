@@ -21,7 +21,7 @@ describe("Should watch climate", () => {
     expect(result).not.toBe(null);
   });
   it("should return men temperature for coordinates", async () => {
-    const result = await domain.getDataForCoordinate({
+    const result = await domain.getTemperatureDataForCoordinate({
       latitude: 47.22,
       longitude: -1.55,
     });

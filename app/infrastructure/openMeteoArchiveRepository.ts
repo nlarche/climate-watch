@@ -3,16 +3,25 @@ import { Coordinates } from "../domain/model/Coordinates";
 import { Period } from "../domain/model/Period";
 import { TemperatureData } from "../domain/model/data";
 import { mapToTemperatureData } from "./acl/OpenMeteoToTemperatureDataMapper";
+import { RepoUrl } from "./utils/repoUrl";
 
 export class OpenMeteoArchiveRepository implements ClimateDataRepository {
-  apiUrl = `https://archive-api.open-meteo.com/v1/archive`;
-  dailyParameters = "&daily=temperature_2m_max,temperature_2m_min";
+  apiUrl = new RepoUrl(`https://archive-api.open-meteo.com/v1/archive`);
+
+  constructor() {
+    this.apiUrl.addParams("daily", [
+      "temperature_2m_max",
+      "temperature_2m_min",
+    ]);
+    this.apiUrl.addParams("timezone", "auto");
+  }
 
   getData(coordinates: Coordinates, period: Period): Promise<TemperatureData> {
-    const dates = `&start_date=${period.start}&end_date=${period.end}`;
-    return fetch(
-      `${this.apiUrl}?latitude=${coordinates.latitude}&longitude=${coordinates.longitude}${dates}${this.dailyParameters}&timezone=auto`
-    )
+    this.apiUrl.addParams("start_date", period.start);
+    this.apiUrl.addParams("end_date", period.end);
+    this.apiUrl.addParams("latitude", coordinates.latitude.toString());
+    this.apiUrl.addParams("longitude", coordinates.longitude.toString());
+    return fetch(this.apiUrl.toURL())
       .then((r) => {
         if (!r.ok) {
           // catch error

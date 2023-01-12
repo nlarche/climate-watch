@@ -40,3 +40,8 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
